@@ -1,0 +1,23 @@
+body {
+  background-color: #EEE;
+  margin: 0;
+}
+
+nav {
+  background-color: chartreuse;
+}
+nav ul {
+  display: flex;
+  padding: 1rem;
+  margin: 0;
+}
+nav ul li {
+  list-style-type: none;
+  margin-right: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quattrocento";
+}
+
+/*# sourceMappingURL=index.css.map */
