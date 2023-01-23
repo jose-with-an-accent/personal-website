@@ -1,6 +1,7 @@
 body {
     background-color: #EEE;
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 nav {
     background-color: chartreuse;
@@ -16,5 +17,8 @@ nav {
     }
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Quattrocento';
+    font-family: 'Montserrat';
+}
+#wrapper {
+    padding: 3em;
 }
