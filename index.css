@@ -2,23 +2,24 @@ body {
   background: linear-gradient(to bottom right, #2727b8, rgb(0, 0, 98));
   font-family: 'Courier New', Courier, monospace;
   color: white;
-  font-size: 3rem;
+  font-size: 1.6rem;
 }
 h1 {
-  font-size: 5.5rem;
+  font-size: 3.5rem;
 }
 h2 {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
 }
 #wrapper {
   padding: 2em;
+  max-width: 1000px;
 }
 a {
   text-decoration: none;
 }
 li {
   background-color: white;
-  padding: 2rem;
+  padding: 1rem;
   width: fit-content;
   margin-bottom: 1rem;
   color: blue;
@@ -26,7 +27,7 @@ li {
 
 }
 li:hover {
-  box-shadow: -12px 9px 0px 0px rgba(255,255,255,1);
+  box-shadow: -9px 9px 0px 0px rgba(255,255,255,1);
   background-color: aquamarine;
 }
 #pages-list {
@@ -36,7 +37,7 @@ li:hover {
   color: blue;
 }
 .viewOnGithub {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 .viewOnGithub a:link,.viewOnGithub a:hover,.viewOnGithub   a:visited {
   color: white;
@@ -49,8 +50,12 @@ ul {
   list-style-type: none;
 }
 h3 {
-  border-bottom: solid lightgray 1px;
+  border-bottom: solid white 3px;
   padding-bottom: 1rem;
+}
+h4:not(:first-of-type) {
+  border-top: solid white 1px;
+  padding-top: 1rem;
 }
 .italics {
   font-style: italic;
