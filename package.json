@@ -1,0 +1,16 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "main": "build.ts",
+  "repository": "https://github.com/jose-with-an-accent/personal-website.git",
+  "author": "Jose Sanchez <jsanchez@vailsys.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "typescript": "^2.0.4",
+    "yaml": "^2.3.4"
+  },
+  "scripts": {
+    "build": "node build.js"
+  }
+}
