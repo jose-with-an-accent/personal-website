@@ -25,14 +25,11 @@ projects:
       - React.js
       - Firebase
       - Python (Scraping)
-
 work_experience:
   - company: Vail Systems
-    description: Creates software for businesses and phones.
-    roles:
-      - title: Internal Web App Developer
-        description: |
-          - Developing an internal web app with NestJS and React-Admin.
-          - Helping tutor post-high school students with the Seneca Foundation,
-            a coding bootcamp focused on Black and Latine students, on React, HTML,
-            and JavaScript.
+    company_description: Vail creates software for businesses and phones.
+    description: |
+      - Developing an internal web app with NestJS and React-Admin.
+      - Helping tutor post-high school students with the Seneca Foundation,
+        a coding bootcamp focused on Black and Latine students, on React, HTML,
+        and JavaScript.

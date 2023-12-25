@@ -2,26 +2,14 @@
 
 import { parse } from 'yaml'
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
-type YAMLResume = {
-        projects: Array<{
-            name: string,
-            description: string,
-            languages_and_tools: string
-        }>,
-        work_experience: Array<{
-            company: string,
-            description: string,
-            roles: Array<{
-                title: string,
-                description: string
-            }>
-        }>
-}
+import type {YAMLResume} from './contents';
+
 let htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
 const publicDirectory = readdirSync("public/");
 const srcDirectory = readdirSync("src/");
 const file = readFileSync("resume.yaml");
 const parsed: YAMLResume = parse(file.toString());
+
 function injectProjects() {
     const TAG = '<!--PROJECTS-->';
     const locationOfWrapper = htmlSkeleton.indexOf(TAG);
@@ -32,6 +20,8 @@ function injectProjects() {
             <p>${description}</p>
             <h5>Languages&Tools</h5>
             <p>${languages_and_tools}</p>
+            <span class="viewOnGithub"><a href="//github.com">View on GitHub</a></span>
+
         `
     })
     htmlSkeleton = htmlSkeleton.slice(0, locationOfWrapper) + injectedContent + htmlSkeleton.slice(locationOfWrapper+TAG.length);
@@ -40,12 +30,11 @@ function injectWorkExperience() {
     const TAG = '<!--WORK_EXPERIENCE-->';
     const locationOfWrapper = htmlSkeleton.indexOf(TAG);
     let injectedContent = ''
-    parsed.work_experience.forEach(({company, description, roles}) => {
+    parsed.work_experience.forEach(({company, company_description, description}) => {
         injectedContent += `
             <h4>${company}</h4>
+            <p class='italics'>${company_description}</p>
             <p>${description}</p>
-            <h5>Languages&Tools</h5>
-            <p>${JSON.stringify(roles)}</p>
         `
          htmlSkeleton = htmlSkeleton.slice(0, locationOfWrapper) + injectedContent + htmlSkeleton.slice(locationOfWrapper+TAG.length);
     })
