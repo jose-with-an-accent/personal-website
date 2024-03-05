@@ -1,0 +1,28 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:typescript@^2.0.4": "npm:typescript@2.9.2",
+      "npm:yaml@^2.3.4": "npm:yaml@2.4.0"
+    },
+    "npm": {
+      "typescript@2.9.2": {
+        "integrity": "sha512-Gr4p6nFNaoufRIY4NMdpQRNmgxVIGMs4Fcu/ujdYk3nAZqk7supzBE9idmvfZIlH/Cuj//dvi+019qEue9lV0w==",
+        "dependencies": {}
+      },
+      "yaml@2.4.0": {
+        "integrity": "sha512-j9iR8g+/t0lArF4V6NE/QCfT+CO7iLqrXAHZbJdo+LfjqP1vR8Fg5bSiaq6Q2lOD1AUEVrEVIgABvBFYojJVYQ==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:typescript@^2.0.4",
+        "npm:yaml@^2.3.4"
+      ]
+    }
+  }
+}
