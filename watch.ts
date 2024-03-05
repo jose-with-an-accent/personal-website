@@ -14,7 +14,7 @@ import { YAMLResume } from "./contents.d.ts";
 let htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
 let publicDirectory = readdirSync("public/");
 let srcDirectory = readdirSync("src/");
-let file = readFileSync("resume.yaml");
+let file = readFileSync("src/resume.yaml");
 let parsed: YAMLResume = parse(file.toString());
 
 function injectProjects() {
@@ -74,7 +74,7 @@ async function watch() {
       htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
       publicDirectory = readdirSync("public/");
       srcDirectory = readdirSync("src/");
-      file = readFileSync("resume.yaml");
+      file = readFileSync("src/resume.yaml");
       parsed = parse(file.toString());
   
       injectProjects();

@@ -1,0 +1,36 @@
+projects:
+  - name: drp·rs
+    description: |
+      This is a Rust program that updates Discord Rich Presence information,
+      so you can share music status or a watched movie with friends. It currently
+      works with Linux (and Plex/Tautulli on any platform), with Windows support
+      planned soon.
+    languages_and_tools:
+      - Rust
+
+  - name: CTA Pi Tracker
+    description: |
+      An app meant to get information from the CTA Train Tracker API and
+      display it with a Raspberry Pi. Voice control was included and allowed the
+      user to navigate to certain routes.
+    languages_and_tools:
+      - Python
+      - React.js
+
+  - name: College Explorer
+    description: |
+      Made for a app challenge, college-explorer was an app based on React.js
+      and Firebase that allowed people to easily compare colleges and keep track
+      of application status.
+    languages_and_tools:
+      - React.js
+      - Firebase
+      - Python (Scraping)
+work_experience:
+  - company: Vail Systems
+    company_description: Vail creates software for businesses and phones.
+    description: |
+      - Developing an internal web app with NestJS and React-Admin.
+      - Helping tutor post-high school students with the Seneca Foundation,
+        a coding bootcamp focused on Black and Latine students, on React, HTML,
+        and JavaScript.
