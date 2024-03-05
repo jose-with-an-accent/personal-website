@@ -11,7 +11,8 @@ projects:
   - name: CTA Pi Tracker
     description: |
       An app meant to get information from the CTA Train Tracker API and
-      display it with a Raspberry Pi.
+      display it with a Raspberry Pi. Voice control was included and allowed the
+      user to navigate to certain routes.
     languages_and_tools:
       - Python
       - React.js
