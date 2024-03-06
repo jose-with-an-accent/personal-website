@@ -11,6 +11,7 @@
     "yaml": "^2.3.4"
   },
   "scripts": {
-    "build": "node build.js"
+    "build": "deno run -A build.ts",
+    "watch": "deno run -A build.ts -w"
   }
 }

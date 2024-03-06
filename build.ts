@@ -38,7 +38,7 @@ function injectContent<T>(
   const TAG = `<!--${tag}-->`;
   const locationOfWrapper = htmlSkeleton.indexOf(TAG);
   let injectedContent = "";
-  injectedContent += content.map(callback);
+  injectedContent += content.map(callback).join('');
   htmlSkeleton = htmlSkeleton.slice(0, locationOfWrapper) +
     injectedContent + htmlSkeleton.slice(locationOfWrapper + TAG.length);
 }
@@ -56,7 +56,6 @@ function injectWorkExperience() {
   );
 }
 
-
 if (Deno.args.includes("-w")) {
   watch();
 } else if (Deno.args.includes("-h")) {
@@ -72,10 +71,10 @@ if (Deno.args.includes("-w")) {
 
 async function watch() {
   const watcher = Deno.watchFs("./src");
-  console.log("watching /src");
+  console.log("%cwatching /src", "color: yellow");
   for await (const event of watcher) {
     if (event.paths[0].includes(".")) { // check if is file
-      console.log(`${event.paths[0]} updated!`);
+      console.log(`%c${event.paths[0]} updated!`, "color: green");
       // update files
       htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
       publicDirectory = readdirSync("public/");
@@ -102,5 +101,5 @@ function finalizeBuild() {
       copyFileSync(`src/${file}`, `build/${file}`);
     }
   });
-  console.info("Built site!");
+  console.info("%cBuilt site!", "color: green");
 }

@@ -60,3 +60,12 @@ h4:not(:first-of-type) {
 .italics {
   font-style: italic;
 }
+.small {
+  font-size: small;
+}
+#autogen-brag {
+  background-color: white;
+  color: blue;
+  padding: 2px 4px;
+  width: fit-content;
+}
