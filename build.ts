@@ -9,7 +9,8 @@ import {
   readFileSync,
   writeFileSync,
 } from "node:fs";
-import { Project, WorkExperience, YAMLResume } from "./contents.d.ts";
+import { Project, WorkExperience, YAMLResume } from "./src/contents.d.ts";
+import { Link } from "./src/contents.d.ts";
 // in the future, build PDF from YAML too.
 let htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
 let publicDirectory = readdirSync("public/");
@@ -55,6 +56,11 @@ function injectWorkExperience() {
     },
   );
 }
+function injectLinks() {
+  injectContent<Link>('LINKS', parsed.links, ({name, href}) => (
+    `<li id="resume_button"><a href="${href}">${name}</a></li>`
+  ))
+}
 
 if (Deno.args.includes("-w")) {
   watch();
@@ -84,7 +90,7 @@ async function watch() {
 
       injectProjects();
       injectWorkExperience();
-
+      injectLinks();
       finalizeBuild();
     }
   }

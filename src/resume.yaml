@@ -1,3 +1,10 @@
+links:
+  - name: LinkedIn
+    href: https://www.linkedin.com/in/jose-sanchez-67092115a
+  - name: Resume
+    href: https://josesanchez.dev/resume_latest.pdf
+  - name: GitHub
+    href: https://github.com/jose-with-an-accent/
 projects:
   - name: drp·rs
     description: |
