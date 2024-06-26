@@ -10,6 +10,11 @@ export type WorkExperience = {
     company_description: string,
     description: string
 }
+export type FoundationExperience = {
+    name: string,
+    description: string,
+    roles: Array<string>
+}
 export type Link = {
     name: string,
     href: string
@@ -17,5 +22,6 @@ export type Link = {
 export type YAMLResume = {
     projects: Array<Project>,
     work_experience: Array<WorkExperience>,
+    foundation_experience: Array<FoundationExperience>
     links: Array<Link>
 }

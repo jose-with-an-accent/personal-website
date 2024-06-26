@@ -38,6 +38,10 @@ work_experience:
     company_description: Vail creates software for businesses and phones.
     description: |
       - Developing an internal web app with NestJS and React-Admin.
-      - Helping tutor post-high school students with the Seneca Foundation,
-        a coding bootcamp focused on Black and Latine students, on React, HTML,
-        and JavaScript.
+      - Created tools to manage automated communications like text messages.
+foundation_experience: 
+  - name: Seneca Foundation
+    description: Seneca helps students in underrepresented communities get into tech.
+    roles: |
+      - Developed social media site for other apprentices to use, with React and Nest.JS.
+      - Tutored student on matters related to computer science, like JavaScript.

@@ -11,6 +11,21 @@ import {
 } from "node:fs";
 import { Project, WorkExperience, YAMLResume } from "./src/contents.d.ts";
 import { Link } from "./src/contents.d.ts";
+import { FoundationExperience } from "./src/contents.d.ts";
+
+function injectContent<T>(
+  tag: string,
+  content: Array<T>,
+  callback: (item: T) => string,
+) {
+  const TAG = `<!--${tag}-->`;
+  const locationOfWrapper = htmlSkeleton.indexOf(TAG);
+  let injectedContent = "";
+  injectedContent += content.map(callback).join("");
+  htmlSkeleton = htmlSkeleton.slice(0, locationOfWrapper) +
+    injectedContent + htmlSkeleton.slice(locationOfWrapper + TAG.length);
+}
+
 // in the future, build PDF from YAML too.
 let htmlSkeleton = readFileSync("src/index.skeleton.html").toString();
 let publicDirectory = readdirSync("public/");
@@ -18,7 +33,7 @@ let srcDirectory = readdirSync("src/");
 let file = readFileSync("src/resume.yaml");
 let parsed: YAMLResume = parse(file.toString());
 
-function injectProjects() {
+const injectProjects = () =>
   injectContent<Project>(
     "PROJECTS",
     parsed.projects,
@@ -30,20 +45,8 @@ function injectProjects() {
              <span class="viewOnGithub"><a href="//github.com">View on GitHub</a></span>
          `),
   );
-}
-function injectContent<T>(
-  tag: string,
-  content: Array<T>,
-  callback: (item: T) => string,
-) {
-  const TAG = `<!--${tag}-->`;
-  const locationOfWrapper = htmlSkeleton.indexOf(TAG);
-  let injectedContent = "";
-  injectedContent += content.map(callback).join('');
-  htmlSkeleton = htmlSkeleton.slice(0, locationOfWrapper) +
-    injectedContent + htmlSkeleton.slice(locationOfWrapper + TAG.length);
-}
-function injectWorkExperience() {
+
+const injectWorkExperience = () =>
   injectContent<WorkExperience>(
     "WORK_EXPERIENCE",
     parsed.work_experience,
@@ -55,12 +58,22 @@ function injectWorkExperience() {
                `;
     },
   );
-}
-function injectLinks() {
-  injectContent<Link>('LINKS', parsed.links, ({name, href}) => (
+  const injectFoundationExperience = () =>
+    injectContent<FoundationExperience>(
+      "FOUNDATION_EXPERIENCE",
+      parsed.foundation_experience,
+      ({ name, description, roles }) => {
+        return `
+                     <h4>${name}</h4>
+                     <p class='italics'>${description}</p>
+                     <p>${roles}</p>
+                 `;
+      },
+    );
+const injectLinks = () =>
+  injectContent<Link>("LINKS", parsed.links, ({ name, href }) => (
     `<li id="resume_button"><a href="${href}">${name}</a></li>`
-  ))
-}
+  ));
 
 if (Deno.args.includes("-w")) {
   watch();
@@ -72,6 +85,8 @@ if (Deno.args.includes("-w")) {
 } else {
   injectProjects();
   injectWorkExperience();
+  injectLinks();
+  injectFoundationExperience();
   finalizeBuild();
 }
 
@@ -91,6 +106,7 @@ async function watch() {
       injectProjects();
       injectWorkExperience();
       injectLinks();
+      injectFoundationExperience();
       finalizeBuild();
     }
   }
